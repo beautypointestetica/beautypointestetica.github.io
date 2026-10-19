@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Il tuo momento · Beauty Point">
+<meta property="og:image" content="https://beautypointestetica.github.io/centro.jpg">
+<meta property="og:description" content="La tua esperienza in un minuto.">
+<meta property="og:url" content="https://beautypointestetica.github.io/uscita.html">
+<meta property="og:type" content="website">
+<title>Beauty Point · Come ti senti</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:"Larke Neue";src:url(https://link.skinem.it/font/larke-100.woff2) format("woff2");font-weight:100 300;font-display:swap}
+@font-face{font-family:"Larke Neue";src:url(https://link.skinem.it/font/larke-400.woff2) format("woff2");font-weight:400 500;font-display:swap}
+@font-face{font-family:"Larke Neue";src:url(https://link.skinem.it/font/larke-600.woff2) format("woff2");font-weight:600 800;font-display:swap}
+:root{
+  --bg:#ffffff;--fg:#3a3a39;--muted:#7a7c7d;--brand:#00B3E6;--brand-ink:#0089b0;--grey:#575756;
+  --line:#e2e8ec;--chip:#f3f8fb;--sel:#e3f6fc;
+  --font:"Larke Neue","Avenir Next","Century Gothic","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1417;--fg:#e8eef1;--muted:#98a4aa;--brand:#19bdec;--brand-ink:#5fd3f5;--grey:#c9cfd2;--line:#253038;--chip:#172025;--sel:#0f3341;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1417;--fg:#e8eef1;--muted:#98a4aa;--brand:#19bdec;--brand-ink:#5fd3f5;--grey:#c9cfd2;--line:#253038;--chip:#172025;--sel:#0f3341;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+.app{max-width:520px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;position:relative}
+.bar{display:flex;gap:5px;padding:14px 20px 0;padding-top:max(14px,env(safe-area-inset-top))}
+.bar i{flex:1;height:3px;border-radius:3px;background:var(--line);transition:background .3s}
+.bar i.on{background:var(--brand)}
+.app.cover-on .bar{position:absolute;inset:0 0 auto 0;z-index:2}
+.app.cover-on .bar i{background:rgba(255,255,255,.45)}
+.app.cover-on .bar i.on{background:#fff}
+
+.page{display:none;flex:1;flex-direction:column;padding:28px 24px 24px;padding-bottom:max(24px,env(safe-area-inset-bottom));animation:in .35s ease}
+.page.on{display:flex}
+@keyframes in{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page{animation:none}}
+
+
+/* copertina */
+.p0{padding:0}
+.hero{position:relative;width:100%;aspect-ratio:1/1;max-height:46dvh;overflow:hidden;background:#eef1f3}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.p0 .in{padding-top:24px}
+.p0 .in{padding:40px 24px 0;display:flex;flex-direction:column;flex:1;padding-bottom:max(24px,env(safe-area-inset-bottom))}
+.k{margin:0;font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--brand-ink)}
+h1,h2{font-weight:300;color:var(--grey);margin:8px 0 0;line-height:1.15;text-wrap:balance}
+h1{font-size:30px}
+h2{font-size:26px}
+h1 b,h2 b{font-weight:500;color:var(--fg)}
+.lead{margin:12px 0 0;color:var(--muted);font-size:16px;max-width:34ch}
+.sp{flex:1;min-height:20px}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;width:100%;border-radius:16px;border:1px solid var(--brand);background:var(--brand);color:#fff;font:500 16px/1 var(--font);text-decoration:none;cursor:pointer;transition:transform .15s,opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn[disabled]{opacity:.35;pointer-events:none}
+.btn.ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn:focus-visible,.opt:focus-visible,.n:focus-visible{outline:2px solid var(--brand-ink);outline-offset:2px}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.row .btn{min-height:48px;font-size:14px;background:var(--chip);border-color:var(--line);color:var(--fg)}
+.row .btn svg{width:18px;height:18px;color:var(--brand-ink)}
+.time{margin:12px 0 0;text-align:center;color:var(--muted);font-size:13px}
+
+/* domande */
+.q{margin:0;font-size:13px;color:var(--muted);letter-spacing:.04em}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;min-height:58px;padding:12px 16px;border-radius:16px;border:1px solid var(--line);background:var(--chip);color:var(--fg);font:400 17px/1.3 var(--font);cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.opt:active{transform:scale(.99)}
+.opt .dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--line);flex:none;display:grid;place-items:center;transition:all .15s;background:var(--bg)}
+.opts.multi .opt .dot{border-radius:7px}
+.opt[aria-pressed="true"],.opt[aria-checked="true"]{border-color:var(--brand);background:var(--sel)}
+.opt[aria-pressed="true"] .dot,.opt[aria-checked="true"] .dot{background:var(--brand);border-color:var(--brand)}
+.opt[aria-pressed="true"] .dot:after,.opt[aria-checked="true"] .dot:after{content:"";width:9px;height:5px;border:2px solid #fff;border-top:0;border-right:0;transform:translateY(-1px) rotate(-45deg)}
+
+.nps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:28px}
+.n{aspect-ratio:1;border-radius:14px;border:1px solid var(--line);background:var(--chip);color:var(--fg);font:400 19px/1 var(--font);cursor:pointer;font-variant-numeric:tabular-nums;transition:all .15s}
+.n[aria-checked="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+.ends{display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--muted)}
+
+label.f{display:block;margin-top:22px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+textarea,input[type=text]{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:14px;background:var(--chip);color:var(--fg);font:400 17px/1.4 var(--font);padding:14px 16px}
+textarea{min-height:130px;resize:vertical}
+textarea:focus,input:focus{outline:none;border-color:var(--brand)}
+
+.nav{display:flex;gap:10px;margin-top:24px}
+.back{flex:none;width:54px;min-height:54px;border-radius:16px;border:1px solid var(--line);background:transparent;color:var(--muted);display:grid;place-items:center;cursor:pointer}
+.back svg{width:20px;height:20px}
+
+/* fine */
+.ok{width:72px;height:72px;border-radius:50%;background:var(--sel);display:grid;place-items:center;color:var(--brand-ink);margin-top:12px}
+.ok svg{width:34px;height:34px}
+.box{margin-top:22px;border:1px solid var(--line);border-radius:18px;padding:18px}
+.box p{margin:0 0 14px;font-size:15px;color:var(--fg)}
+.box+.box{margin-top:12px}
+.foot{margin-top:28px;display:flex;justify-content:center}
+.foot .follow{border-color:var(--brand);background:var(--sel)}
+.igh{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.igav{width:44px;height:44px;border-radius:50%;background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);display:grid;place-items:center;color:#fff;flex:none}
+.igav svg{width:22px;height:22px}
+.igh b{display:block;font-weight:500;font-size:16px;color:var(--fg)}
+.igh small{color:var(--muted);font-size:13px}
+.err{color:#c0392b;font-size:13px;margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <div class="bar" id="bar" aria-hidden="true"></div>
+
+  <!-- 0 copertina -->
+  <section class="page p0 on" data-p="0" aria-label="Benvenuta">
+    <div class="hero"><img src="centro.jpg" alt="Il team di Beauty Point"></div>
+    <div class="in">
+      <p class="k" id="cName">Beauty Point</p>
+      <h1>Grazie di esserti <b>presa questo tempo.</b></h1>
+      <p class="lead">Prima di tornare alla tua giornata: come stai adesso? Ci servono le tue parole per prenderci cura di te ancora meglio.</p>
+      <label class="f" for="nome">Come ti chiami?</label>
+      <input type="text" id="nome" maxlength="60" autocomplete="given-name" autocapitalize="words" enterkeyhint="go" placeholder="Il tuo nome">
+      <div class="sp"></div>
+      <button class="btn" data-next id="start" disabled>Rispondo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="time">5 domande · meno di un minuto</p>
+      <div class="row" id="contacts"></div>
+    </div>
+  </section>
+
+  <!-- 1 -->
+  <section class="page" data-p="1" data-key="sensazione" data-type="one" aria-label="Domanda 1">
+    <p class="q">1 di 5</p>
+    <h2>Come ti senti <b>adesso?</b></h2>
+    <div class="opts" role="radiogroup">
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Leggera</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Rilassata</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Rinnovata, più bella</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Ancora un po' tesa</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Non saprei dirlo</button>
+    </div>
+    <div class="sp"></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="page" data-p="2" data-key="notato" data-type="one" aria-label="Domanda 2">
+    <p class="q">2 di 5</p>
+    <h2>Cosa ti è rimasto <b>di più?</b></h2>
+    <div class="opts" role="radiogroup">
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>La pelle più luminosa</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Il corpo più leggero</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Le mani di chi mi ha seguita</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>La tecnologia, il calore</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Un'ora tutta per me</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>L'ambiente, l'accoglienza</button>
+    </div>
+    <div class="sp"></div>
+    <div class="nav"><button class="back" data-back aria-label="Indietro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="page" data-p="3" data-key="spiegazione" data-type="one" aria-label="Domanda 3">
+    <p class="q">3 di 5</p>
+    <h2>Ti è chiaro <b>il tuo percorso?</b></h2>
+    <p class="lead">Cosa abbiamo fatto oggi e cosa faremo le prossime volte.</p>
+    <div class="opts" role="radiogroup">
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Sì, tutto chiaro</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Più o meno</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Ho ancora qualche domanda</button>
+    </div>
+    <div class="sp"></div>
+    <div class="nav"><button class="back" data-back aria-label="Indietro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="page" data-p="4" data-key="prossimo" data-type="one" aria-label="Domanda 4">
+    <p class="q">4 di 5</p>
+    <h2>Il tuo <b>prossimo appuntamento?</b></h2>
+    <div class="opts" role="radiogroup">
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>L'ho già fissato</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Vorrei fissarlo</button>
+      <button class="opt" role="radio" aria-checked="false"><span class="dot"></span>Ci penso con calma</button>
+    </div>
+    <div class="sp"></div>
+    <div class="nav"><button class="back" data-back aria-label="Indietro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="page" data-p="5" data-key="consiglio" data-type="nps" aria-label="Domanda 5">
+    <p class="q">5 di 5</p>
+    <h2>Ci consiglieresti <b>a un'amica?</b></h2>
+    <div class="nps" role="radiogroup" id="nps"></div>
+    <div class="ends"><span>Per niente</span><span>Assolutamente</span></div>
+    <p class="err" id="err" hidden>Connessione assente. Tocca di nuovo il numero tra un attimo.</p>
+    <div class="sp"></div>
+    <div class="nav"><button class="back" data-back aria-label="Indietro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button></div>
+  </section>
+
+  <!-- 6 grazie -->
+  <section class="page" data-p="6" aria-label="Grazie">
+    <div class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 id="thx">Grazie. <b>Ci vediamo presto.</b></h2>
+    <p class="lead">Leggiamo ogni risposta, una per una.</p>
+    <div class="box follow" id="boxIg" hidden><div class="igh"><span class="igav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span><span><b id="igName">@</b><small>su Instagram</small></span></div><p>Seguici: ogni settimana ti portiamo in cabina con risultati veri, consigli per la tua pelle e quello che succede dietro le quinte.</p><a class="btn" id="igBtn" target="_blank" rel="noopener">Seguici su Instagram</a></div>
+    <div class="box" id="boxBook" hidden><p>Scrivici e fissiamo insieme il prossimo appuntamento.</p><a class="btn" id="bookBtn" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.100 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>Fissa su WhatsApp</a></div>
+    <div class="box" id="boxAsk" hidden><p>Scrivici le tue domande: ti rispondiamo noi.</p><a class="btn ghost" id="askBtn" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
+    <div class="box" id="boxRev" hidden><p>Ti è piaciuto? Racconta la tua esperienza: aiuta un'altra donna a fare il primo passo.</p><a class="btn" id="revBtn" target="_blank" rel="noopener">Lascia una recensione su Google</a></div>
+    <div class="sp"></div>
+    <div class="row" id="contacts2"></div>
+  </section>
+</main>
+
+<script>
+/* ===== IMPOSTAZIONI — si cambiano solo qui ===== */
+var ENDPOINT = "https://script.google.com/macros/s/AKfycbx2qbAtH4YS8ecdtycA02XtseEoQspjamiH6FeLLbFuFNQ9TfPA56aXu2tUVyVDvvRI/exec"; // script del foglio "Risposte questionario Beauty Point"
+var CENTRI = {
+  beautypoint: { nome:"Beauty Point", luogo:"", wa:"393713505625", ig:"", mappa:"", recensione:"" }
+};
+/* =============================================== */
+
+(function(){
+  var qs=new URLSearchParams(location.search);
+  var C=CENTRI.beautypoint;
+  var op=(qs.get('op')||'').slice(0,40);
+  var A={};
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var app=document.getElementById('app'), bar=document.getElementById('bar');
+  var cur=0, LAST=pages.length-1;
+
+  document.getElementById('cName').textContent=C.nome;
+  document.title=C.nome+' · Come ti senti';
+  for(var i=1;i<LAST;i++){bar.appendChild(document.createElement('i'))}
+
+  var ico={
+    wa:'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>',
+    ig:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>',
+    map:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
+  };
+  function wa(t){return 'https://wa.me/'+C.wa+(t?'?text='+encodeURIComponent(t):'')}
+  function contacts(el){
+    var h='';
+    if(C.wa) h+='<a class="btn" href="'+wa('')+'" target="_blank" rel="noopener">'+ico.wa+'WhatsApp</a>';
+    if(C.ig) h+='<a class="btn" href="https://www.instagram.com/'+C.ig+'/" target="_blank" rel="noopener">'+ico.ig+'Instagram</a>';
+    if(C.mappa) h+='<a class="btn" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(C.mappa)+'" target="_blank" rel="noopener">'+ico.map+'Dove siamo</a>';
+    el.innerHTML=h;
+    el.style.gridTemplateColumns='repeat('+el.children.length+',1fr)';
+  }
+  contacts(document.getElementById('contacts'));contacts(document.getElementById('contacts2'));
+
+  function go(n){
+    pages[cur].classList.remove('on');cur=Math.max(0,Math.min(LAST,n));pages[cur].classList.add('on');
+    
+    bar.hidden=(cur===LAST);
+    [].forEach.call(bar.children,function(b,i){b.classList.toggle('on',i<cur)});
+    window.scrollTo(0,0);
+  }
+  var nomeEl=document.getElementById('nome'),startEl=document.getElementById('start');
+  var pre=(qs.get('nome')||'').slice(0,60); if(pre){nomeEl.value=pre}
+  function chkNome(){A.nome=nomeEl.value.trim();startEl.disabled=A.nome.length<2}
+  chkNome();nomeEl.addEventListener('input',chkNome);
+  nomeEl.addEventListener('keydown',function(e){if(e.key==='Enter'&&!startEl.disabled){nomeEl.blur();go(1)}});
+  document.querySelectorAll('[data-next]').forEach(function(b){b.addEventListener('click',function(){go(cur+1)})});
+  document.querySelectorAll('[data-back]').forEach(function(b){b.addEventListener('click',function(){go(cur-1)})});
+
+  // scelta singola: avanza da sola
+  document.querySelectorAll('.page[data-type="one"]').forEach(function(p){
+    var k=p.dataset.key;
+    p.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){
+      p.querySelectorAll('.opt').forEach(function(x){x.setAttribute('aria-checked','false')});
+      o.setAttribute('aria-checked','true');A[k]=o.textContent.trim();
+      setTimeout(function(){go(cur+1)},260);
+    })});
+  });
+  // scelta multipla
+  document.querySelectorAll('.page[data-type="multi"]').forEach(function(p){
+    var k=p.dataset.key,nx=p.querySelector('[data-next]');
+    p.querySelectorAll('.opt').forEach(function(o){o.addEventListener('click',function(){
+      o.setAttribute('aria-pressed',o.getAttribute('aria-pressed')==='true'?'false':'true');
+      var v=[].filter.call(p.querySelectorAll('.opt'),function(x){return x.getAttribute('aria-pressed')==='true'}).map(function(x){return x.textContent.trim()});
+      A[k]=v.join(', ');nx.disabled=!v.length;
+    })});
+  });
+  // 0-10
+  var nps=document.getElementById('nps');
+  for(var n=0;n<=10;n++){(function(n){
+    var b=document.createElement('button');b.className='n';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');b.textContent=n;
+    b.addEventListener('click',function(){nps.querySelectorAll('.n').forEach(function(x){x.setAttribute('aria-checked','false')});b.setAttribute('aria-checked','true');A.consiglio=n;setTimeout(send,260)});
+    nps.appendChild(b);
+  })(n)}
+  nps.style.gridTemplateColumns='repeat(6,1fr)';
+
+  // invio automatico
+  var sending=false;
+  function send(){
+    if(sending)return;sending=true;document.getElementById('err').hidden=true;
+    var data={centro:C.nome,operatrice:op,sensazione:A.sensazione||'',notato:A.notato||'',spiegazione:A.spiegazione||'',prossimo:A.prossimo||'',consiglio:(A.consiglio==null?'':A.consiglio),commento:'',nome:A.nome||''};
+    var URL_FOGLIO=C.foglio||ENDPOINT;
+    if(!URL_FOGLIO||URL_FOGLIO.indexOf('http')!==0){finish(A.nome||'');return}
+    try{
+      fetch(URL_FOGLIO,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(data)})
+        .then(function(){finish(A.nome||'')},function(){sending=false;document.getElementById('err').hidden=false});
+    }catch(e){finish(A.nome||'')}
+  }
+
+  function finish(nome){
+    if(nome){document.getElementById('thx').innerHTML='Grazie, '+nome.replace(/[<>&"]/g,'')+'. <b>Ci vediamo presto.</b>'}
+    var pre=nome?'Ciao, sono '+nome+'. ':'Ciao! ';
+    if(C.ig){document.getElementById('boxIg').hidden=false;document.getElementById('igName').textContent='@'+C.ig;document.getElementById('igBtn').href='https://www.instagram.com/'+C.ig+'/'}
+    if(C.wa&&A.prossimo==='Vorrei fissarlo'){document.getElementById('boxBook').hidden=false;document.getElementById('bookBtn').href=wa(pre+'Sono appena uscita dal centro e vorrei fissare il prossimo appuntamento.')}
+    if(C.wa&&A.spiegazione==='Ho ancora qualche domanda'){document.getElementById('boxAsk').hidden=false;document.getElementById('askBtn').href=wa(pre+'Avrei qualche domanda sul mio percorso.')}
+    if(C.recensione&&A.consiglio>=9){document.getElementById('boxRev').hidden=false;document.getElementById('revBtn').href=C.recensione}
+    go(LAST);
+  }
+})();
+</script>
+</body>
+</html>
